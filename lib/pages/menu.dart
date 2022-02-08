@@ -10,7 +10,7 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
-    List<String> menuItems = ['Hiragana', 'Katakana'];
+    List<String> menuItems = ['Hiragana', 'Katakana', 'Common Words'];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select Item'),

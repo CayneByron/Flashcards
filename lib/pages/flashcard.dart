@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'dart:typed_data';
 import 'dart:async';
 
 class Flashcard extends StatefulWidget {
@@ -18,10 +17,15 @@ class _FlashcardState extends State<Flashcard> {
   bool hasData = false;
   bool hasAnswer = false;
   bool isCorrect = false;
+  bool hasMeaning = false;
   String currentText = '';
   String currentQuestion = '?';
+  String questionKey = '';
   String currentAnswer = '?';
+  String answerKey = '';
+  String currentMeaning = '';
   int currentIndex = 0;
+  String assetName = '';
   dynamic data;
   final focus = FocusNode();
 
@@ -36,34 +40,67 @@ class _FlashcardState extends State<Flashcard> {
   }
 
   void loadAll() async {
-    print('LOAD ALL');
-    print(menuItem);
     if (menuItem.isNotEmpty) {
-      String loadedData = await DefaultAssetBundle.of(context).loadString("assets/${menuItem.toLowerCase()}.json");
+      assetName = menuItem.toLowerCase();
+      assetName = assetName.replaceAll(' ', '_');
+      String loadedData = await DefaultAssetBundle.of(context).loadString("assets/$assetName.json");
       final jsonData = jsonDecode(loadedData);
+
+      if (assetName == 'hiragana' || assetName == 'katakana') {
+        questionKey = 'kana';
+      } else if (assetName == 'common_words') {
+        hasMeaning = true;
+        questionKey = 'word';
+      } else if (assetName == 'kanji') {
+        hasMeaning = true;
+        questionKey = 'kanji';
+      }
+
+      answerKey = 'roumaji';
       Random random = Random();
       int nextInt = random.nextInt(jsonData.length - 1);
       setState(() {
         data = jsonData;
-        currentQuestion = jsonData[nextInt]['kana'];
-        currentAnswer = jsonData[nextInt]['roumaji'];
+        currentQuestion = jsonData[nextInt][questionKey];
+        currentAnswer = jsonData[nextInt][answerKey];
+        currentMeaning = hasMeaning ? jsonData[nextInt]['meaning'] : '';
         hasData = true;
         hasAnswer = false;
         isCorrect = false;
         currentIndex = nextInt;
       });
     }
-
   }
 
   void submit(String answer, String submittedAnswer) {
-      submittedAnswer = submittedAnswer.toUpperCase();
-      if (submittedAnswer == answer.toUpperCase()) {
+      String submittedAnswerUpper = submittedAnswer.toUpperCase();
+      if (submittedAnswerUpper == answer.toUpperCase()) {
         isCorrect = true;
       }
       setState(() {
         hasAnswer = true;
+        currentText = submittedAnswer;
       });
+  }
+
+  void next() {
+    Random random = Random();
+    int nextInt = -1;
+    while (true) {
+      nextInt = random.nextInt(data.length - 1);
+      if (nextInt != currentIndex) {
+        break;
+      }
+    }
+    setState(() {
+      hasAnswer = false;
+      isCorrect = false;
+      currentQuestion = data[nextInt][questionKey];
+      currentAnswer = data[nextInt]['roumaji'];
+      currentMeaning = hasMeaning ? data[nextInt]['meaning'] : '';
+      currentText = '';
+      currentIndex = nextInt;
+    });
   }
 
   @override
@@ -73,6 +110,7 @@ class _FlashcardState extends State<Flashcard> {
     TextEditingController answerController = TextEditingController();
     String question = currentQuestion;
     String answer = currentAnswer;
+    String meaning = currentMeaning;
     answerController.text = currentText;
     answerController.selection = TextSelection.fromPosition(TextPosition(offset: answerController.text.length));
     if (hasData) {
@@ -119,9 +157,9 @@ class _FlashcardState extends State<Flashcard> {
                                 },
                                 textCapitalization: TextCapitalization.characters,
                                 onChanged: (String s) {
-                                  setState(() {
-                                    currentText = answerController.text.toUpperCase();
-                                  });
+                                  // setState(() {
+                                  //   currentText = answerController.text.toUpperCase();
+                                  // });
                                 },
                                 textAlign: TextAlign.center,
                                 controller: answerController,
@@ -134,14 +172,33 @@ class _FlashcardState extends State<Flashcard> {
                       ),
                       Visibility(
                         visible: hasAnswer,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(answer.toUpperCase(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: (isCorrect == true) ? Colors.green : Colors.red,
-                                fontSize: 32.0,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(answer.toUpperCase(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    color: (isCorrect == true) ? Colors.green : Colors.red,
+                                    fontSize: 32.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Visibility(
+                              visible: hasMeaning,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text('Meaning: $meaning',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.blue,
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -154,7 +211,9 @@ class _FlashcardState extends State<Flashcard> {
                             visible: !hasAnswer,
                             child: TextButton(
                               child: const Text('SKIP'),
-                              onPressed: () {/* ... */},
+                              onPressed: () {
+                                next();
+                              },
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -162,7 +221,8 @@ class _FlashcardState extends State<Flashcard> {
                             visible: !hasAnswer,
                             child: TextButton(
                               child: const Text('SUBMIT'),
-                              onPressed: answerController.text == '' ? null : () {
+                              onPressed: () {
+                                if (answerController.text.isEmpty) return;
                                 submit(answer, answerController.text);
                               },
                             ),
@@ -173,22 +233,7 @@ class _FlashcardState extends State<Flashcard> {
                             child: TextButton(
                               child: const Text('NEXT'),
                               onPressed: () {
-                                Random random = Random();
-                                int nextInt = -1;
-                                while (true) {
-                                  nextInt = random.nextInt(data.length - 1);
-                                  if (nextInt != currentIndex) {
-                                    break;
-                                  }
-                                }
-                                setState(() {
-                                  hasAnswer = false;
-                                  isCorrect = false;
-                                  currentQuestion = data[nextInt]['kana'];
-                                  currentAnswer = data[nextInt]['roumaji'];
-                                  currentText = '';
-                                  currentIndex = nextInt;
-                                });
+                                next();
                               },
                             ),
                           ),

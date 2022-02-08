@@ -1,0 +1,302 @@
+[
+  {
+    "word": "行く",
+    "roumaji": "iku",
+    "meaning": "go"
+  },
+  {
+    "word": "見る",
+    "roumaji": "miru",
+    "meaning": "see, look at"
+  },
+  {
+    "word": "多い",
+    "roumaji": "ooi",
+    "meaning": "a lot of, many"
+  },
+  {
+    "word": "家",
+    "roumaji": "ie",
+    "meaning": "home, household"
+  },
+  {
+    "word": "これ",
+    "roumaji": "kore",
+    "meaning": "this, this one"
+  },
+  {
+    "word": "それ",
+    "roumaji": "sore",
+    "meaning": "that, that one"
+  },
+  {
+    "word": "私",
+    "roumaji": "watashi",
+    "meaning": "I"
+  },
+  {
+    "word": "仕事",
+    "roumaji": "shigoto",
+    "meaning": "work, job"
+  },
+  {
+    "word": "いつ",
+    "roumaji": "itsu",
+    "meaning": "when"
+  },
+  {
+    "word": "する",
+    "roumaji": "suru",
+    "meaning": "do, make"
+  },
+  {
+    "word": "出る",
+    "roumaji": "deru",
+    "meaning": "go out, leave"
+  },
+  {
+    "word": "使う",
+    "roumaji": "tsukau",
+    "meaning": "use, make use of"
+  },
+  {
+    "word": "所",
+    "roumaji": "tokoro",
+    "meaning": "place"
+  },
+  {
+    "word": "作る",
+    "roumaji": "tsukuru",
+    "meaning": "make, create"
+  },
+  {
+    "word": "思う",
+    "roumaji": "omou",
+    "meaning": "think"
+  },
+  {
+    "word": "持つ",
+    "roumaji": "motsu",
+    "meaning": "have, possess"
+  },
+  {
+    "word": "買う",
+    "roumaji": "kau",
+    "meaning": "buy"
+  },
+  {
+    "word": "時間",
+    "roumaji": "jikan",
+    "meaning": "time, hour"
+  },
+  {
+    "word": "知る",
+    "roumaji": "shiru",
+    "meaning": "know"
+  },
+  {
+    "word": "同じ",
+    "roumaji": "onaji",
+    "meaning": "same, identical"
+  },
+  {
+    "word": "今",
+    "roumaji": "ima",
+    "meaning": "now"
+  },
+  {
+    "word": "新しい",
+    "roumaji": "atarashii",
+    "meaning": "new"
+  },
+  {
+    "word": "なる",
+    "roumaji": "naru",
+    "meaning": "become"
+  },
+  {
+    "word": "まだ",
+    "roumaji": "mada",
+    "meaning": "(not) yet, still"
+  },
+  {
+    "word": "あと",
+    "roumaji": "ato",
+    "meaning": "after"
+  },
+  {
+    "word": "聞く",
+    "roumaji": "kiku",
+    "meaning": "hear, ask"
+  },
+  {
+    "word": "言う",
+    "roumaji": "iu",
+    "meaning": "say, tell"
+  },
+  {
+    "word": "少ない",
+    "roumaji": "sukunai",
+    "meaning": "few, little"
+  },
+  {
+    "word": "高い",
+    "roumaji": "takai",
+    "meaning": "high, tall"
+  },
+  {
+    "word": "子供",
+    "roumaji": "kodomo",
+    "meaning": "child"
+  },
+  {
+    "word": "そう",
+    "roumaji": "sou",
+    "meaning": "so, that way"
+  },
+  {
+    "word": "もう",
+    "roumaji": "mou",
+    "meaning": "already, yet"
+  },
+  {
+    "word": "学生",
+    "roumaji": "gakusei",
+    "meaning": "student"
+  },
+  {
+    "word": "熱い",
+    "roumaji": "atsui",
+    "meaning": "hot (to touch)"
+  },
+  {
+    "word": "どうぞ",
+    "roumaji": "douzo",
+    "meaning": "please"
+  },
+  {
+    "word": "午後",
+    "roumaji": "gogo",
+    "meaning": "afternoon, p.m."
+  },
+  {
+    "word": "長い",
+    "roumaji": "nagai",
+    "meaning": "long"
+  },
+  {
+    "word": "本",
+    "roumaji": "hon",
+    "meaning": "book, volume"
+  },
+  {
+    "word": "今年",
+    "roumaji": "kotoshi",
+    "meaning": "this year (colloquial)"
+  },
+  {
+    "word": "よく",
+    "roumaji": "yoku",
+    "meaning": "often, well"
+  },
+  {
+    "word": "彼女",
+    "roumaji": "kanojo",
+    "meaning": "she, one's girlfriend"
+  },
+  {
+    "word": "どう",
+    "roumaji": "dou",
+    "meaning": "how, what"
+  },
+  {
+    "word": "言葉",
+    "roumaji": "kotoba",
+    "meaning": "word, language"
+  },
+  {
+    "word": "顔",
+    "roumaji": "kao",
+    "meaning": "face"
+  },
+  {
+    "word": "終わる",
+    "roumaji": "owaru",
+    "meaning": "finish, end"
+  },
+  {
+    "word": "一つ",
+    "roumaji": "hitotsu",
+    "meaning": "one (thing)"
+  },
+  {
+    "word": "あげる",
+    "roumaji": "ageru",
+    "meaning": "give, offer (colloquial)"
+  },
+  {
+    "word": "こう",
+    "roumaji": "kou",
+    "meaning": "like this, such"
+  },
+  {
+    "word": "学校",
+    "roumaji": "gakkou",
+    "meaning": "school"
+  },
+  {
+    "word": "くれる",
+    "roumaji": "kureru",
+    "meaning": "be given"
+  },
+  {
+    "word": "始める",
+    "roumaji": "hajimeru",
+    "meaning": "start (something)"
+  },
+  {
+    "word": "起きる",
+    "roumaji": "okiru",
+    "meaning": "get up, get out of bed"
+  },
+  {
+    "word": "春",
+    "roumaji": "haru",
+    "meaning": "spring"
+  },
+  {
+    "word": "午前",
+    "roumaji": "gozen",
+    "meaning": "morning, a.m."
+  },
+  {
+    "word": "別",
+    "roumaji": "betsu",
+    "meaning": "another, different"
+  },
+  {
+    "word": "どこ",
+    "roumaji": "doko",
+    "meaning": "where"
+  },
+  {
+    "word": "部屋",
+    "roumaji": "heya",
+    "meaning": "room"
+  },
+  {
+    "word": "若い",
+    "roumaji": "wakai",
+    "meaning": "young"
+  },
+  {
+    "word": "車",
+    "roumaji": "kuruma",
+    "meaning": "car, automobile"
+  },
+  {
+    "word": "置く",
+    "roumaji": "oku",
+    "meaning": "put, place"
+  }
+]
