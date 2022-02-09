@@ -1,0 +1,302 @@
+[
+  {
+    "word": "住む",
+    "roumaji": "sumu",
+    "meaning": "live, reside"
+  },
+  {
+    "word": "働く",
+    "roumaji": "hataraku",
+    "meaning": "work"
+  },
+  {
+    "word": "難しい",
+    "roumaji": "muzukashii",
+    "meaning": "difficult"
+  },
+  {
+    "word": "先生",
+    "roumaji": "sensei",
+    "meaning": "teacher"
+  },
+  {
+    "word": "立つ",
+    "roumaji": "tatsu",
+    "meaning": "stand, rise"
+  },
+  {
+    "word": "呼ぶ",
+    "roumaji": "yobu",
+    "meaning": "call, name"
+  },
+  {
+    "word": "大学",
+    "roumaji": "daigaku",
+    "meaning": "university, college"
+  },
+  {
+    "word": "安い",
+    "roumaji": "yasui",
+    "meaning": "cheap, inexpensive"
+  },
+  {
+    "word": "もっと",
+    "roumaji": "motto",
+    "meaning": "more"
+  },
+  {
+    "word": "帰る",
+    "roumaji": "kaeru",
+    "meaning": "go back home"
+  },
+  {
+    "word": "分かる",
+    "roumaji": "wakaru",
+    "meaning": "understand"
+  },
+  {
+    "word": "広い",
+    "roumaji": "hiroi",
+    "meaning": "wide, big"
+  },
+  {
+    "word": "数",
+    "roumaji": "suu",
+    "meaning": "number"
+  },
+  {
+    "word": "近い",
+    "roumaji": "chikai",
+    "meaning": "near, close"
+  },
+  {
+    "word": "そこ",
+    "roumaji": "soko",
+    "meaning": "there"
+  },
+  {
+    "word": "走る",
+    "roumaji": "hashiru",
+    "meaning": "run"
+  },
+  {
+    "word": "入れる",
+    "roumaji": "ireru",
+    "meaning": "put in"
+  },
+  {
+    "word": "教える",
+    "roumaji": "oshieru",
+    "meaning": "teach, tel"
+  },
+  {
+    "word": "歩く",
+    "roumaji": "aruku",
+    "meaning": "walk, go on foot"
+  },
+  {
+    "word": "会う",
+    "roumaji": "au",
+    "meaning": "meet"
+  },
+  {
+    "word": "書く",
+    "roumaji": "kaku",
+    "meaning": "write"
+  },
+  {
+    "word": "頭",
+    "roumaji": "atama",
+    "meaning": "head"
+  },
+  {
+    "word": "売る",
+    "roumaji": "uru",
+    "meaning": "sell"
+  },
+  {
+    "word": "大好き",
+    "roumaji": "daisuki",
+    "meaning": "like (something) a lot"
+  },
+  {
+    "word": "体",
+    "roumaji": "karada",
+    "meaning": "body, physique"
+  },
+  {
+    "word": "直ぐ",
+    "roumaji": "sugu",
+    "meaning": "at once, soon"
+  },
+  {
+    "word": "飛ぶ",
+    "roumaji": "tobu",
+    "meaning": "fly"
+  },
+  {
+    "word": "とても",
+    "roumaji": "totemo",
+    "meaning": "very (colloquial)"
+  },
+  {
+    "word": "誰",
+    "roumaji": "dare",
+    "meaning": "who"
+  },
+  {
+    "word": "好き",
+    "roumaji": "suki",
+    "meaning": "favorite, liked"
+  },
+  {
+    "word": "読む",
+    "roumaji": "yomu",
+    "meaning": "read"
+  },
+  {
+    "word": "次",
+    "roumaji": "tsugi",
+    "meaning": "next"
+  },
+  {
+    "word": "あなた",
+    "roumaji": "anata",
+    "meaning": "you"
+  },
+  {
+    "word": "飲む",
+    "roumaji": "nomu",
+    "meaning": "drink"
+  },
+  {
+    "word": "古い",
+    "roumaji": "furui",
+    "meaning": "old"
+  },
+  {
+    "word": "質問",
+    "roumaji": "shitsumon",
+    "meaning": "question"
+  },
+  {
+    "word": "今日",
+    "roumaji": "kyou",
+    "meaning": "today (colloquial)"
+  },
+  {
+    "word": "友達",
+    "roumaji": "tomodachi",
+    "meaning": "friend, companion (colloquial)"
+  },
+  {
+    "word": "早い",
+    "roumaji": "hayai",
+    "meaning": "early"
+  },
+  {
+    "word": "どれ",
+    "roumaji": "dore",
+    "meaning": "what, which"
+  },
+  {
+    "word": "美しい",
+    "roumaji": "utsukushii",
+    "meaning": "beautiful"
+  },
+  {
+    "word": "いつも",
+    "roumaji": "itsumo",
+    "meaning": "always (colloquial)"
+  },
+  {
+    "word": "足",
+    "roumaji": "ashi",
+    "meaning": "leg, foot"
+  },
+  {
+    "word": "起こす",
+    "roumaji": "okosu",
+    "meaning": "wake (someone) up"
+  },
+  {
+    "word": "見せる",
+    "roumaji": "miseru",
+    "meaning": "show"
+  },
+  {
+    "word": "娘",
+    "roumaji": "musume",
+    "meaning": "daughter, girl"
+  },
+  {
+    "word": "楽しむ",
+    "roumaji": "tanoshimu",
+    "meaning": "enjoy"
+  },
+  {
+    "word": "色",
+    "roumaji": "iro",
+    "meaning": "color"
+  },
+  {
+    "word": "みんな",
+    "roumaji": "minna",
+    "meaning": "everybody (colloquial)"
+  },
+  {
+    "word": "取る",
+    "roumaji": "toru",
+    "meaning": "take, get"
+  },
+  {
+    "word": "勉強",
+    "roumaji": "benkyou",
+    "meaning": "study"
+  },
+  {
+    "word": "できる",
+    "roumaji": "dekiru",
+    "meaning": "can do, be good at"
+  },
+  {
+    "word": "短い",
+    "roumaji": "mijikai",
+    "meaning": "short, brief"
+  },
+  {
+    "word": "落ちる",
+    "roumaji": "ochiru",
+    "meaning": "fall, come down"
+  },
+  {
+    "word": "息子",
+    "roumaji": "musuko",
+    "meaning": "son"
+  },
+  {
+    "word": "白い",
+    "roumaji": "shiroi",
+    "meaning": "white, blank"
+  },
+  {
+    "word": "飛行機",
+    "roumaji": "hikouki",
+    "meaning": "airplane"
+  },
+  {
+    "word": "病気",
+    "roumaji": "byouki",
+    "meaning": "illness"
+  },
+  {
+    "word": "冬",
+    "roumaji": "fuyu",
+    "meaning": "winter"
+  },
+  {
+    "word": "年",
+    "roumaji": "toshi",
+    "meaning": "year, age"
+  }
+]

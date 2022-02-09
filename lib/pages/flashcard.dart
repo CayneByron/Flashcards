@@ -48,7 +48,7 @@ class _FlashcardState extends State<Flashcard> {
 
       if (assetName == 'hiragana' || assetName == 'katakana') {
         questionKey = 'kana';
-      } else if (assetName == 'common_words') {
+      } else if (assetName.contains('common_words')) {
         hasMeaning = true;
         questionKey = 'word';
       } else if (assetName == 'kanji') {

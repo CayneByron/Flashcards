@@ -66,8 +66,8 @@ flutter:
   assets:
     - assets/hiragana.json
     - assets/katakana.json
-    - assets/common_words.json
-    - assets/kanji.json
+    - assets/common_words_1.json
+    - assets/common_words_2.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
