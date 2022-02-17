@@ -13,7 +13,7 @@ class _MenuState extends State<Menu> {
     List<String> menuItems = ['Hiragana', 'Katakana', 'Common Words 1', 'Common Words 2'];
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Item'),
+        title: const Text('Kanarama'),
       ),
       body: GridView.count(
         // Create a grid with 2 columns. If you change the scrollDirection to

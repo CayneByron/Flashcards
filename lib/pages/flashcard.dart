@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:async';
+import 'package:flashcards/widgets/gradienttext.dart';
 
 class Flashcard extends StatefulWidget {
   const Flashcard({Key? key}) : super(key: key);
@@ -28,6 +29,8 @@ class _FlashcardState extends State<Flashcard> {
   String assetName = '';
   dynamic data;
   final focus = FocusNode();
+  int successCount = 0;
+  List successList = List.empty(growable: true);
 
   @override
   void initState() {
@@ -57,7 +60,7 @@ class _FlashcardState extends State<Flashcard> {
       }
 
       answerKey = 'roumaji';
-      Random random = Random();
+      Random random = Random(DateTime.now().millisecondsSinceEpoch);
       int nextInt = random.nextInt(jsonData.length - 1);
       setState(() {
         data = jsonData;
@@ -73,9 +76,19 @@ class _FlashcardState extends State<Flashcard> {
   }
 
   void submit(String answer, String submittedAnswer) {
+      bool wasCorrect = isCorrect;
       String submittedAnswerUpper = submittedAnswer.toUpperCase();
       if (submittedAnswerUpper == answer.toUpperCase()) {
         isCorrect = true;
+      }
+      if (isCorrect && !wasCorrect) {
+        successCount++;
+        if (successCount <= data.length) {
+          successList.add(currentIndex);
+        }
+      } else if (!isCorrect) {
+        successCount = 0;
+        successList.clear();
       }
       setState(() {
         hasAnswer = true;
@@ -84,11 +97,11 @@ class _FlashcardState extends State<Flashcard> {
   }
 
   void next() {
-    Random random = Random();
+    Random random = Random(DateTime.now().millisecondsSinceEpoch);
     int nextInt = -1;
     while (true) {
-      nextInt = random.nextInt(data.length - 1);
-      if (nextInt != currentIndex) {
+      nextInt = random.nextInt(data.length);
+      if (!successList.contains(nextInt) || successCount >= data.length) {
         break;
       }
     }
@@ -113,8 +126,10 @@ class _FlashcardState extends State<Flashcard> {
     String meaning = currentMeaning;
     answerController.text = currentText;
     answerController.selection = TextSelection.fromPosition(TextPosition(offset: answerController.text.length));
+    int dataLength = 0;
     if (hasData) {
       FocusScope.of(context).requestFocus(focus);
+      dataLength = data.length;
     } else {
       loadAll();
     }
@@ -205,8 +220,41 @@ class _FlashcardState extends State<Flashcard> {
                         ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
+                          const SizedBox(width: 8),
+                          Visibility(
+                            visible: successCount >= dataLength,
+                            child: GradientText(
+                              '$successCount/$dataLength',
+                              gradient: const LinearGradient(colors: [
+                                Colors.red,
+                                Colors.pink,
+                                Colors.purple,
+                                Colors.deepPurple,
+                                Colors.deepPurple,
+                                Colors.indigo,
+                                Colors.blue,
+                                Colors.lightBlue,
+                                Colors.cyan,
+                                Colors.teal,
+                                Colors.green,
+                                Colors.lightGreen,
+                                Colors.lime,
+                                Colors.yellow,
+                                Colors.amber,
+                                Colors.orange,
+                                Colors.deepOrange,
+                              ]),
+                            ),
+                          ),
+                          Visibility(
+                            visible: successCount < dataLength,
+                            child: Text('$successCount/$dataLength', style: const TextStyle(
+                              color: Colors.black
+                            )),
+                          ),
+                          const Spacer(),
                           Visibility(
                             visible: !hasAnswer,
                             child: TextButton(
