@@ -140,170 +140,168 @@ class _FlashcardState extends State<Flashcard> {
         backgroundColor: Colors.red,
       ),
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              Visibility(
-                visible: hasData,
-                child: Card(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      ListTile(
-                        // leading: Icon(Icons.translate),
-                        title: Center(
-                          child: Text(question,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              fontSize: 64.0,
-                            ),
+        child: Column(
+          children: [
+            Visibility(
+              visible: hasData,
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      // leading: Icon(Icons.translate),
+                      title: Center(
+                        child: Text(question,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 64.0,
                           ),
                         ),
-                        // subtitle: Text('A'),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Expanded(
-                            child: TextField(
-                                onSubmitted: (String s) {
-                                  submit(answer, answerController.text);
-                                },
-                                textCapitalization: TextCapitalization.characters,
-                                onChanged: (String s) {
-                                  // setState(() {
-                                  //   currentText = answerController.text.toUpperCase();
-                                  // });
-                                },
-                                textAlign: TextAlign.center,
-                                controller: answerController,
-                                autofocus: true,
-                                focusNode: focus,
-                            ),
+                      // subtitle: Text('A'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Expanded(
+                          child: TextField(
+                              onSubmitted: (String s) {
+                                submit(answer, answerController.text);
+                              },
+                              textCapitalization: TextCapitalization.characters,
+                              onChanged: (String s) {
+                                // setState(() {
+                                //   currentText = answerController.text.toUpperCase();
+                                // });
+                              },
+                              textAlign: TextAlign.center,
+                              controller: answerController,
+                              autofocus: true,
+                              focusNode: focus,
                           ),
-                          const SizedBox(height: 80),
-                        ],
-                      ),
-                      Visibility(
-                        visible: hasAnswer,
-                        child: Column(
-                          children: [
-                            Row(
+                        ),
+                        const SizedBox(height: 80),
+                      ],
+                    ),
+                    Visibility(
+                      visible: hasAnswer,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(answer.toUpperCase(),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  color: (isCorrect == true) ? Colors.green : Colors.red,
+                                  fontSize: 32.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Visibility(
+                            visible: hasMeaning,
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(answer.toUpperCase(),
-                                  style: TextStyle(
+                                Text('Meaning: $meaning',
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.normal,
-                                    color: (isCorrect == true) ? Colors.green : Colors.red,
-                                    fontSize: 32.0,
+                                    color: Colors.blue,
+                                    fontSize: 16.0,
                                   ),
                                 ),
                               ],
                             ),
-                            Visibility(
-                              visible: hasMeaning,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text('Meaning: $meaning',
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      color: Colors.blue,
-                                      fontSize: 16.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const SizedBox(width: 8),
-                          Visibility(
-                            visible: successCount >= dataLength,
-                            child: GradientText(
-                              '$successCount/$dataLength',
-                              gradient: const LinearGradient(colors: [
-                                Colors.red,
-                                Colors.pink,
-                                Colors.purple,
-                                Colors.deepPurple,
-                                Colors.deepPurple,
-                                Colors.indigo,
-                                Colors.blue,
-                                Colors.lightBlue,
-                                Colors.cyan,
-                                Colors.teal,
-                                Colors.green,
-                                Colors.lightGreen,
-                                Colors.lime,
-                                Colors.yellow,
-                                Colors.amber,
-                                Colors.orange,
-                                Colors.deepOrange,
-                              ]),
-                            ),
                           ),
-                          Visibility(
-                            visible: successCount < dataLength,
-                            child: Text('$successCount/$dataLength', style: const TextStyle(
-                              color: Colors.black
-                            )),
-                          ),
-                          const Spacer(),
-                          Visibility(
-                            visible: !hasAnswer,
-                            child: TextButton(
-                              child: const Text('SKIP'),
-                              onPressed: () {
-                                next();
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Visibility(
-                            visible: !hasAnswer,
-                            child: TextButton(
-                              child: const Text('SUBMIT'),
-                              onPressed: () {
-                                if (answerController.text.isEmpty) return;
-                                submit(answer, answerController.text);
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Visibility(
-                            visible: hasAnswer,
-                            child: TextButton(
-                              child: const Text('NEXT'),
-                              onPressed: () {
-                                next();
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 8),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        const SizedBox(width: 8),
+                        Visibility(
+                          visible: successCount >= dataLength,
+                          child: GradientText(
+                            '$successCount/$dataLength',
+                            gradient: const LinearGradient(colors: [
+                              Colors.red,
+                              Colors.pink,
+                              Colors.purple,
+                              Colors.deepPurple,
+                              Colors.deepPurple,
+                              Colors.indigo,
+                              Colors.blue,
+                              Colors.lightBlue,
+                              Colors.cyan,
+                              Colors.teal,
+                              Colors.green,
+                              Colors.lightGreen,
+                              Colors.lime,
+                              Colors.yellow,
+                              Colors.amber,
+                              Colors.orange,
+                              Colors.deepOrange,
+                            ]),
+                          ),
+                        ),
+                        Visibility(
+                          visible: successCount < dataLength,
+                          child: Text('$successCount/$dataLength', style: const TextStyle(
+                            color: Colors.black
+                          )),
+                        ),
+                        const Spacer(),
+                        Visibility(
+                          visible: !hasAnswer,
+                          child: TextButton(
+                            child: const Text('SKIP'),
+                            onPressed: () {
+                              next();
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Visibility(
+                          visible: !hasAnswer,
+                          child: TextButton(
+                            child: const Text('SUBMIT'),
+                            onPressed: () {
+                              if (answerController.text.isEmpty) return;
+                              submit(answer, answerController.text);
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Visibility(
+                          visible: hasAnswer,
+                          child: TextButton(
+                            child: const Text('NEXT'),
+                            onPressed: () {
+                              next();
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              Visibility(
-                visible: !hasData,
-                child: const Padding(
-                    padding: EdgeInsets.only(right: 20.0, top: 16),
-                    child: SpinKitFadingCube(
-                      color: Colors.black,
-                      size: 20.0,
-                    )
-                ),
+            ),
+            Visibility(
+              visible: !hasData,
+              child: const Padding(
+                  padding: EdgeInsets.only(right: 20.0, top: 16),
+                  child: SpinKitFadingCube(
+                    color: Colors.black,
+                    size: 20.0,
+                  )
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
